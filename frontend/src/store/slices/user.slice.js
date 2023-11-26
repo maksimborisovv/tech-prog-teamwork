@@ -27,15 +27,13 @@ const userSlice = createSlice({
 export const { setUser, resetUser, setUserAuthError } = userSlice.actions;
 export default userSlice.reducer;
 
-export const loginUser = (login, password) => {
-  async (dispatch) => {
-    let isAuth;
-    const isUserLoginSuccess = !!login.length && !!password.length;
-    if (isUserLoginSuccess) {
-      isAuth = true;
-      dispatch(setUser(login, isAuth));
-    } else {
-      dispatch(setUserAuthError('Log in error!!!'));
-    }
-  };
+export const loginUser = (login, password) => async (dispatch) => {
+  let isAuth;
+  const isUserLoginSuccess = !!login.length && !!password.length;
+  if (isUserLoginSuccess) {
+    isAuth = true;
+    dispatch(setUser({ login, isAuth }));
+  } else {
+    dispatch(setUserAuthError('Log in error!!!'));
+  }
 };

@@ -1,0 +1,27 @@
+.login__page {
+  margin: auto;
+  width: 375px;
+  display: flex;
+  flex-flow: column;
+  place-items: center;
+}
+
+.login__title {
+  margin-bottom: 15px;
+}
+
+.login__form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 20px;
+  width: 100%;
+}
+
+.login__input {
+  height: 1.5rem;
+}
+
+.login__label {
+  align-self: flex-start;
+  margin-bottom: -10px;
+}

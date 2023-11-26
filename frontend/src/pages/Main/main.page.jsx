@@ -1,5 +1,19 @@
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import './main.css';
+import TopBar from '../../components/TopBar';
+
 const MainPage = () => {
-  return <div>main page</div>;
+  const { isAuth } = useSelector((state) => state.user);
+  if (!isAuth) {
+    return <Navigate to={'/login'} />;
+  }
+  return (
+    <>
+      <TopBar />
+      <main className='main'>main page</main>
+    </>
+  );
 };
 
 export default MainPage;
