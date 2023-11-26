@@ -1,8 +1,22 @@
-# React + Vite
+# Frontend part of tech-prog-app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Technologies:
 
-Currently, two official plugins are available:
+1.  React
+2.  Redux Toolkit
+3.  React-router-dom v6
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Запуск приложения в режиме разработки:
+
+0. Перейти в директорию "frontend" (из корня приложения)
+   ```bash
+   cd frontend
+   ```
+1. Установка зависимостей
+   ```bash
+   npm install
+   ```
+2. Запуск
+   ```bash
+   npm run dev
+   ```
