@@ -1,0 +1,12 @@
+.topbar__nav {
+  width: 100%;
+
+  border-bottom: 1px solid wheat;
+}
+
+.topbar__ul {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  gap: 15px;
+}
