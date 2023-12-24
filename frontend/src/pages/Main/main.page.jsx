@@ -1,19 +1,19 @@
-import { useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
 import './main.css';
 import TopBar from '../../components/TopBar';
+import { TaskList } from '../../components/TaskList/TaskList';
+import { mockTasks } from '../../lib/mock/mockTasks';
 
 const MainPage = () => {
-  const { isAuth } = useSelector((state) => state.user);
-  if (!isAuth) {
-    return <Navigate to={'/login'} />;
-  }
-  return (
-    <>
-      <TopBar />
-      <main className='main'>main page</main>
-    </>
-  );
+    // const { data: tasks, isLoading } = useTasks();
+
+    return (
+        <>
+            <TopBar />
+            <main className="main">
+                <TaskList tasks={mockTasks} isLoading={false} />
+            </main>
+        </>
+    );
 };
 
 export default MainPage;
