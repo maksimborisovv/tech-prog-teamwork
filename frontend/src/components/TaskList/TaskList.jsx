@@ -1,10 +1,9 @@
 import { memo } from 'react';
 import PropTypes from 'prop-types';
 import './task-list.css';
-import { TaskItem } from '../TaskItem/TaskItem';
 
 export const TaskList = memo((props) => {
-    const { tasks, isLoading } = props;
+    const { tasks, isLoading, renderTask } = props;
 
     if (isLoading) {
         return <p>Loading...</p>;
@@ -16,6 +15,7 @@ export const TaskList = memo((props) => {
                 <p>Название задачи</p>
                 <p>Дата создания</p>
                 <p>Текущий статус</p>
+                <p>Действия</p>
             </div>
             <div className="task-list__divider" />
             {tasks
@@ -24,7 +24,7 @@ export const TaskList = memo((props) => {
                         new Date(next.created_At).getTime() - new Date(prev.created_At).getTime()
                 )
                 .map((task) => (
-                    <TaskItem key={task.id} task={task} />
+                    <div key={task.id}>{renderTask(task)}</div>
                 ))}
         </div>
     );
@@ -33,6 +33,8 @@ export const TaskList = memo((props) => {
 TaskList.propTypes = {
     tasks: PropTypes.array,
     isLoading: PropTypes.bool,
+    actions: PropTypes.element,
+    renderTask: PropTypes.func,
 };
 
 TaskList.displayName = 'TaskList';

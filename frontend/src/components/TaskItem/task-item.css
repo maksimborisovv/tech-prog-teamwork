@@ -1,6 +1,7 @@
 .task-item {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
     cursor: pointer;
     transition: background-color 0.15s ease;
     border-radius: 6px;

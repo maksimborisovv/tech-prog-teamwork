@@ -1,8 +1,10 @@
 import { memo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './task-form.css';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { newTaskSchema } from './types/newTaskSchema';
+import { useCreateTask } from '../../api/tasksApi';
 
 export const AddTaskForm = memo(() => {
     const {
@@ -14,8 +16,17 @@ export const AddTaskForm = memo(() => {
         resolver: zodResolver(newTaskSchema),
     });
 
+    const [createTaskQuery] = useCreateTask();
+    const navigate = useNavigate();
+
     const handleFormSubmit = (data) => {
-        console.log(data);
+        createTaskQuery({
+            ...data,
+            workTime: data.workTime * 60000,
+            restTime: data.restTime * 60000,
+        })
+            .unwrap()
+            .then((task) => navigate(`task/${task.id}`));
         reset();
     };
 
@@ -31,7 +42,7 @@ export const AddTaskForm = memo(() => {
                 {errors.name && <p className="task-form__error">{`${errors.name.message}`}</p>}
                 <input
                     {...register('description')}
-                    placeholder="Описание задачи"
+                    placeholder="Описание задачи*   "
                     className="task-form__input"
                 />
                 {errors.description && (
@@ -39,7 +50,7 @@ export const AddTaskForm = memo(() => {
                 )}
                 <input
                     {...register('workTime', { valueAsNumber: true })}
-                    placeholder="Интервал работы (в секундах)"
+                    placeholder="Интервал работы (в минутах)"
                     className="task-form__input"
                     type="number"
                 />
@@ -48,7 +59,7 @@ export const AddTaskForm = memo(() => {
                 )}
                 <input
                     {...register('restTime', { valueAsNumber: true })}
-                    placeholder="Интервал отдыха (в секундах)"
+                    placeholder="Интервал отдыха (в минутах)"
                     className="task-form__input"
                     type="number"
                 />

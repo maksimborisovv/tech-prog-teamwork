@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import TopBar from '../components/TopBar';
 
 export const RequireAuth = (props) => {
     const { children } = props;
@@ -11,7 +12,12 @@ export const RequireAuth = (props) => {
         return <Navigate to={'/login'} />;
     }
 
-    return children;
+    return (
+        <>
+            <TopBar />
+            {children}
+        </>
+    );
 };
 
 RequireAuth.propTypes = {
