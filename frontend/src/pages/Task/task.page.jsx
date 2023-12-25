@@ -14,8 +14,8 @@ export const TaskPage = memo(() => {
     const [patchTaskStatusQuery] = usePatchStatus();
 
     const onAddSubTaskHandle = useCallback(
-        (newSubTask) => {
-            createSubTaskQuery(newSubTask);
+        (taskId, newSubTask) => {
+            createSubTaskQuery({ taskId, newSubTask });
         },
         [createSubTaskQuery]
     );

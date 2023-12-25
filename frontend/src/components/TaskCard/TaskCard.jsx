@@ -33,7 +33,7 @@ export const TaskCard = memo((props) => {
                     ))}
                 </li>
             </ul>
-            {renderSubtaskActions(task)}
+            {renderSubtaskActions(task.id)}
             <div className="task-card__buttons">
                 {task.status === 'paused' || task.status === 'new' ? (
                     <button type="button" onClick={() => onStatusChange(task.id, 'in_work')}>
