@@ -1,0 +1,18 @@
+.task-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    gap: 8px;
+}
+
+.task-list__header {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.task-list__divider {
+    align-self: center;
+    height: 1px;
+    width: 85%;
+    background-color: wheat;
+}

@@ -1,12 +1,16 @@
 .topbar__nav {
-  width: 100%;
-
-  border-bottom: 1px solid wheat;
+    width: 100%;
+    border-bottom: 1px solid wheat;
+    display: flex;
+    padding: 4px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .topbar__ul {
-  display: flex;
-  flex-flow: row wrap;
-  list-style: none;
-  gap: 15px;
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    align-items: center;
+    gap: 15px;
 }
