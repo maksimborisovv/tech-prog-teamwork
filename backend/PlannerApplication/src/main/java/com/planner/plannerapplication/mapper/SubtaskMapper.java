@@ -8,10 +8,16 @@ import org.springframework.stereotype.Component;
 public class SubtaskMapper {
     public static SubtaskDto mapToSubtaskDto(SubtaskEntity subtask) {
         return SubtaskDto.builder()
-                .id(subtask.getId())
-                .name(subtask.getName())
-                .description(subtask.getDescription())
+                .initId(subtask.getId())
+                .initName(subtask.getName())
+                .initDescription(subtask.getDescription())
                 .build();
+
+//        return SubtaskDto.builder()
+//                .id(subtask.getId())
+//                .name(subtask.getName())
+//                .description(subtask.getDescription())
+//                .build();
     }
 
     public static SubtaskEntity mapFromSubtaskDto(SubtaskDto subtask) {
